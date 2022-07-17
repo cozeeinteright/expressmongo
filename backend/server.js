@@ -15,6 +15,8 @@ server.get('/api',(req, res) => {
     
     const kitty = new Cat({name: 'Zildjian' })
     kitty.save().then(() => console.log('meow'))
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'GET')
     res.json({ name: "koji", description: "I like mongo" })
 })
 
