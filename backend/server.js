@@ -15,7 +15,7 @@ server.get('/api',(req, res) => {
     
     const kitty = new Cat({name: 'Zildjian' })
     kitty.save().then(() => console.log('meow'))
-    res.send('meow')
+    res.json({ name: "koji", description: "I like mongo" })
 })
 
 server.listen(port, () => {
