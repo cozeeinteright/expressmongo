@@ -7,8 +7,9 @@ import ShowLoginform from './components/ShowLoginform';
 function App() {
   return (
     <div className="App">
+      <ShowLoginform />
       <header className="App-header">
-        <ShowLoginform />
+        test app
       </header>
       <BrowserRouter>
       <Routes>
