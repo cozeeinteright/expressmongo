@@ -5,17 +5,16 @@ module.exports = async (req, res) => {
     console.log(req.body)
   
     try {
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000')
-      const user = await prisma.user.create({
-        data: {
-          name,
-          email,
-          password
+      const user = await prisma.user.create(
+        {
+          name: 'test',
+          email: 'test',
+          password: 'test'
         },
-      })
-  
+      )
       return res.status(201).json(user)
     } catch (error) {
+      console.log('error createUser')
       return res.status(500).json(error)
     }
   }

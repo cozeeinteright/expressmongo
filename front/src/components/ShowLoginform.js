@@ -20,10 +20,19 @@ const ShowLoginform = () => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-
-        fetch('http://localhost:3000/user',{method: 'POST'})
+        console.log(values)
+        fetch('http://localhost:3000/user',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',        
+          },
+          body: JSON.stringify(values, null, 2),
+        })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:',error)
+        });
 
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
