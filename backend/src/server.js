@@ -7,6 +7,8 @@ const express = require('express')
 const server = express()
 const port = 3000
 
+server.use(express.json())
+
 server.get('/', (req, res) => {
     res.json({ value: "Hello!" })
 })
