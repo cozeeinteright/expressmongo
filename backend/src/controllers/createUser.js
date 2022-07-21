@@ -1,10 +1,9 @@
 const prisma = require('../prisma')
 
 module.exports = async (req, res) => {
-    const { name , email, password} = req.body
-    console.log(req.body)
-  
     try {
+      const { name , email, password} = req.body
+      await prisma.$connect()
       const user = await prisma.user.create(
         {
           name: 'test',
@@ -16,5 +15,9 @@ module.exports = async (req, res) => {
     } catch (error) {
       console.log('error createUser')
       return res.status(500).json(error)
+    } finally {
+      async () => {
+        await prisma.$disconnect()
+      }
     }
   }
