@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "module": "commonjs",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "strict": true,
+    "lib": ["esnext"],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,

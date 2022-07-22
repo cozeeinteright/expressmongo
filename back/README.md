@@ -13,5 +13,11 @@ in Bash
  6. yarn add ts-node
  7. yarn add ts-node-dev
 
+ 8. yarn add eslint
+ 9. yarn add @typescript-eslint/parser
+ 10. yarn add @typescript-eslint/eslint-plugin
+ 11. npx eslint --init
+ 12. yarn add prettier
+ 13. yarn add eslint-config-prettier
 
  
