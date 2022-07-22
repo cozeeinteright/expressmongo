@@ -4,9 +4,12 @@ const ShowLoginform = () => (
   <div>
     <h1>Any place in your app!</h1>
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ name: '', email: '', password: '' }}
       validate={values => {
         const errors = {};
+        if(!values.name) {
+          errors.name = 'Resuired';
+        }
         if (!values.email) {
           errors.email = 'Required';
         } else if (
@@ -17,10 +20,19 @@ const ShowLoginform = () => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-
-        fetch('http://localhost:3000/api')
+        console.log(values)
+        fetch('http://localhost:3000/user',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',        
+          },
+          body: JSON.stringify(values, null, 2),
+        })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:',error)
+        });
 
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -30,6 +42,8 @@ const ShowLoginform = () => (
     >
       {({ isSubmitting }) => (
         <Form>
+          <Field type="name" name="name" />
+          <ErrorMessage name="name" component="div" />
           <Field type="email" name="email" />
           <ErrorMessage name="email" component="div" />
           <Field type="password" name="password" />
