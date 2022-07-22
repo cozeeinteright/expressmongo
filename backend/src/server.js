@@ -2,7 +2,6 @@
 const feed = require("./controllers/feed")
 const publishDraft = require("./controllers/publishDraft")
 const createUser = require("./controllers/createUser")
-const prisma = require('./prisma')
 
 const express = require('express')
 const cors = require('cors')
