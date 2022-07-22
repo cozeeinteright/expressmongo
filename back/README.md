@@ -20,4 +20,14 @@ in Bash
  12. yarn add prettier
  13. yarn add eslint-config-prettier
 
+ 14. yarn add prisma
+ 15. yarn add @prisma/client
+
+
+# run
+ sudo docker compose up --build
+
+# mongo container shell accsess
+ sudo docker exec -it mongo1 mongosh
+
  
