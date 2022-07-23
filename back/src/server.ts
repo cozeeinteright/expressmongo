@@ -49,11 +49,12 @@ router.post('/api/user', async (req:express.Request, res:express.Response) => {
   try{
     const createUser = await prisma.user.create({
       data: {
-        name: "koji",
+        name: "test",
         email: "koji@test.com"
       },
     })
-    res.send(req.query)
+    const allUsers = await prisma.user.findMany()
+    res.status(200).json({ allUsers })
   } catch(e) {
     console.log(e)
   }

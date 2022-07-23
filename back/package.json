@@ -4,7 +4,7 @@
   "description": "flamework is express  database is mongodb  ORM is prisma",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
+    "dev": "nodemon --watch './src/*.ts' --exec ts-node-dev src/server.ts",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server.js"
@@ -20,6 +20,7 @@
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "express": "^4.18.1",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "prisma": "^4.1.0",
     "ts-node": "^10.9.1",
