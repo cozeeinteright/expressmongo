@@ -16,6 +16,7 @@ services:
  mongo1:
   image: mongo:5.0
   container_name: mongo1
+  command: --replSet rs0
   volumes:
     - mongodb1:/data/db
     - mongodb1_config:/etc/mongod.conf

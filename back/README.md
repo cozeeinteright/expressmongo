@@ -30,4 +30,21 @@ in Bash
 # mongo container shell accsess
  sudo docker exec -it mongo1 mongosh
 
+# replica set 
+
+ error message
+ Prisma needs to perform transactions, which requires your MongoDB server to be run as a replica set. https://pris.ly/d/mongodb-replica-set
+
+ 1. edit docker-compose.yaml
+    +   command: --replSet rs0
+ 2. do rs.intiate() in the mongo container
+     sudo docker compose up --build
+     sudo docker exec -it mongo1 mongosh
+     rs.initiate()
+     -> mongo1 become PrimaryOnlyService. 
+
+
+
+
+
  
