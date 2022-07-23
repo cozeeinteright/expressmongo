@@ -20,4 +20,31 @@ in Bash
  12. yarn add prettier
  13. yarn add eslint-config-prettier
 
+ 14. yarn add prisma
+ 15. yarn add @prisma/client
+
+
+# run
+ sudo docker compose up --build
+
+# mongo container shell accsess
+ sudo docker exec -it mongo1 mongosh
+
+# replica set 
+
+ error message
+ Prisma needs to perform transactions, which requires your MongoDB server to be run as a replica set. https://pris.ly/d/mongodb-replica-set
+
+ 1. edit docker-compose.yaml
+    +   command: --replSet rs0
+ 2. do rs.intiate() in the mongo container
+     sudo docker compose up --build
+     sudo docker exec -it mongo1 mongosh
+     rs.initiate()
+     -> mongo1 become PrimaryOnlyService. 
+
+
+
+
+
  
