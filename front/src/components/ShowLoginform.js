@@ -4,7 +4,7 @@ const ShowLoginform = () => (
   <div>
     <h1>Any place in your app!</h1>
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ name: '', email: '' }}
       validate={values => {
         const errors = {};
         if(!values.name) {
@@ -21,7 +21,7 @@ const ShowLoginform = () => (
       }}
       onSubmit={(values, { setSubmitting }) => {
         console.log(values)
-        fetch('http://localhost:3000/user',{
+        fetch('http://localhost:3000/api/user',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',        
@@ -46,8 +46,6 @@ const ShowLoginform = () => (
           <ErrorMessage name="name" component="div" />
           <Field type="email" name="email" />
           <ErrorMessage name="email" component="div" />
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
