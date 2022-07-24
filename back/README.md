@@ -43,6 +43,13 @@ in Bash
      rs.initiate()
      -> mongo1 become PrimaryOnlyService. 
 
+# prisma studio
+ npx prisma studio
+
+# cors header check
+ curl -H "Origin: http://locahost:8000" --head http://localhost:3000/api/user
+ 
+
 
 
 

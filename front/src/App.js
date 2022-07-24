@@ -1,12 +1,19 @@
-import './App.css';
 import { BrowserRouter,Routes, Route } from "react-router-dom";
+import { green } from '@mui/material/colors'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 import Home from './page/Home'
 import About from './page/About'
 import ShowLoginform from './components/ShowLoginform';
 
+const theme = createTheme({
+  palette: {
+    primary: green,
+  }
+})
+
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider thema={theme}>
       <ShowLoginform />
       <header className="App-header">
         test app
@@ -17,7 +24,7 @@ function App() {
           <Route path="about" element={<About />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </ThemeProvider>
   );
 }
 

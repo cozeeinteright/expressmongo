@@ -1,5 +1,7 @@
 import express from 'express'
 import { PrismaClient } from '@prisma/client'
+import cors from 'cors';
+
 const prisma = new PrismaClient()
 
 const app: express.Express = express()
@@ -22,13 +24,13 @@ main()
   })
   */
 
-// CORSの許可
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localohst:8000")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
-})
+const corsOption = {
+    origin: 'http://localhost:8000',
+    methods: 'GET,POST',
+    optionSuccessStatus: 200
+}
 
+app.use(cors(corsOption))
 // body-parserに基づいた着信リクエストの解析
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -39,7 +41,7 @@ router.get('/api/user', async (req:express.Request, res:express.Response) => {
   try{
     const allUsers = await prisma.user.findMany()
     console.log(allUsers)
-    res.send(req.query)
+    res.status(200).json({ allUsers })
   } catch(e) {
     console.log(e)
   }
@@ -47,15 +49,17 @@ router.get('/api/user', async (req:express.Request, res:express.Response) => {
 
 router.post('/api/user', async (req:express.Request, res:express.Response) => {
   try{
+    const user = req.body
     const createUser = await prisma.user.create({
       data: {
-        name: "koji",
-        email: "koji@test.com"
+        name: user.name,
+        email: user.email,
       },
     })
-    res.send(req.query)
+    res.status(200).json({ success: "user created"})
   } catch(e) {
     console.log(e)
+    res.status(500).json({ error: "user is not created"})
   }
 })
 
