@@ -8,29 +8,44 @@ import Box from '@mui/material/Box'
 import Home from './page/Home'
 import About from './page/About'
 import AnchorText from './components/AnchorText'
-import TopBar from './components/TopBar'
 
 const theme = createTheme({
   palette: {
-    primary: blue
+    primary: blue,
   },
 });
+
+const backGround = {
+  display: 'flex',
+  justifyContent: 'center',
+} as const
+
+const topBar = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  bgcolor: 'primary',
+  width: '100%',
+  maxWidth: 1200,
+} as const
+
+const boxItem = {
+  p: 2,
+} as const
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box
-          sx={{
-            display: 'flex',
-            bgcolor: 'background.paper'
-          }}
-        >
-          <Box sx={{ borderRadius: 1,width: '50%',color:blue}}>Box1</Box>
-          <Box sx={{ borderRadius: 1,width: '50%',border: 1,borderColor:"primary"}}>Box2</Box>
+        <Box sx={backGround}>
+          <Box sx={topBar}>
+            <Box sx={boxItem}>Box1</Box>
+            <Box sx={boxItem}>Box2</Box>
+          </Box>
         </Box>
-        <header>
+          <header>
           <AnchorText />
         </header>
         <Button variant="contained">Contained</Button>
@@ -40,7 +55,7 @@ function App() {
             <Route path="about" element={<About />} />
           </Routes>
         </BrowserRouter>
-      </ThemeProvider>
+    </ThemeProvider>
     </>
   );
 }
