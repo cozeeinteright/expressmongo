@@ -15,19 +15,23 @@ const theme = createTheme({
   },
 });
 
-const backGround = {
+const groundTopbar = {
   display: 'flex',
   justifyContent: 'center',
+  bgcolor: `${theme.palette.primary.light}`,
 } as const
 
-const topBar = {
+const innerTopbar = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
-  bgcolor: 'primary',
   width: '100%',
   maxWidth: 1200,
+} as const
+
+const title = {
+  p: 2,
 } as const
 
 const boxItem = {
@@ -39,9 +43,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box sx={backGround}>
-          <Box sx={topBar}>
-            <Box sx={boxItem}>Box1</Box>
+        <Box sx={groundTopbar}>
+          <Box sx={innerTopbar}>
+            <Box sx={title}>Satoyama Biodiversiry Project</Box>
             <Box sx={boxItem}>Box2</Box>
           </Box>
         </Box>
