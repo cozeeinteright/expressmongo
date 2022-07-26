@@ -43,22 +43,26 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box sx={groundTopbar}>
-          <Box sx={innerTopbar}>
-            <Box sx={title}>Satoyama Biodiversiry Project</Box>
-            <Box sx={boxItem}>Box2</Box>
+        <header>
+          <Box sx={groundTopbar}>
+            <Box sx={innerTopbar}>
+              <Box sx={title}>Satoyama Biodiversiry Project</Box>
+              <Box sx={boxItem}>Login</Box>
+            </Box>
           </Box>
-        </Box>
-          <header>
           <AnchorText />
         </header>
-        <Button variant="contained">Contained</Button>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-          </Routes>
-        </BrowserRouter>
+        <main>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="about" element={<About />} />
+            </Routes>
+          </BrowserRouter>        
+        </main>
+        <footer>
+          <Button variant="contained">Contained</Button>
+        </footer>
     </ThemeProvider>
     </>
   );
