@@ -8,39 +8,62 @@ import Box from '@mui/material/Box'
 import Home from './page/Home'
 import About from './page/About'
 import AnchorText from './components/AnchorText'
-import TopBar from './components/TopBar'
 
 const theme = createTheme({
   palette: {
-    primary: blue
+    primary: blue,
   },
 });
+
+const groundTopbar = {
+  display: 'flex',
+  justifyContent: 'center',
+  bgcolor: `${theme.palette.primary.light}`,
+} as const
+
+const innerTopbar = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  width: '100%',
+  maxWidth: 1200,
+} as const
+
+const title = {
+  p: 2,
+} as const
+
+const boxItem = {
+  p: 2,
+} as const
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box
-          sx={{
-            display: 'flex',
-            bgcolor: 'background.paper'
-          }}
-        >
-          <Box sx={{ borderRadius: 1,width: '50%',color:blue}}>Box1</Box>
-          <Box sx={{ borderRadius: 1,width: '50%',border: 1,borderColor:"primary"}}>Box2</Box>
-        </Box>
         <header>
+          <Box sx={groundTopbar}>
+            <Box sx={innerTopbar}>
+              <Box sx={title}>Satoyama Biodiversiry Project</Box>
+              <Box sx={boxItem}>Login</Box>
+            </Box>
+          </Box>
           <AnchorText />
         </header>
-        <Button variant="contained">Contained</Button>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+        <main>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="about" element={<About />} />
+            </Routes>
+          </BrowserRouter>        
+        </main>
+        <footer>
+          <Button variant="contained">Contained</Button>
+        </footer>
+    </ThemeProvider>
     </>
   );
 }
