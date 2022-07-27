@@ -9,6 +9,7 @@ import Home from './page/Home'
 import About from './page/About'
 import AnchorText from './components/AnchorText'
 import MenuButton from './components/MenuButton'
+import MenuList from './components/MenuList'
 
 const theme = createTheme({
   palette: {
@@ -33,10 +34,17 @@ const innerTopbar = {
 
 const title = {
   p: 2,
+  color: 'white',
 } as const
 
-const boxItem = {
+const menubutton = {
   p: 2,
+  display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' },
+} as const
+
+const menulist = {
+  p: 2,
+  display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' },
 } as const
 
 function App() {
@@ -48,9 +56,8 @@ function App() {
           <Box sx={groundTopbar}>
             <Box sx={innerTopbar}>
               <Box sx={title}>Satoyama Biodiversiry Project</Box>
-              <Box sx={boxItem}>
-                <MenuButton />
-              </Box>
+              <Box sx={menubutton}><MenuButton /></Box>
+              <Box sx={menulist}><MenuList /></Box>
             </Box>
           </Box>
           <AnchorText />
