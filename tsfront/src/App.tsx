@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 import Home from './page/Home'
 import About from './page/About'
 import AnchorText from './components/AnchorText'
+import MenuButton from './components/MenuButton'
 
 const theme = createTheme({
   palette: {
@@ -47,7 +48,9 @@ function App() {
           <Box sx={groundTopbar}>
             <Box sx={innerTopbar}>
               <Box sx={title}>Satoyama Biodiversiry Project</Box>
-              <Box sx={boxItem}>Login</Box>
+              <Box sx={boxItem}>
+                <MenuButton />
+              </Box>
             </Box>
           </Box>
           <AnchorText />
