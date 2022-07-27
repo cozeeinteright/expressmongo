@@ -23,15 +23,18 @@ const MenuButton = () => {
 
     return (
       <>
-        <Button onClick={toggleDrawer(true)}>Open</Button>
+        <Button onClick={toggleDrawer(true)}>
+          <Box sx={{color: 'white'}}>Open</Box>
+        </Button>
         <Drawer
           anchor={'top'}
           open={menuState.top}
           onClose={toggleDrawer(false)}
         >
-          <Box>
-            menu1
-          </Box>
+          <Box>menu1</Box>
+          <Box>menu2</Box>
+          <Box>menu3</Box>
+          <Box>menu4</Box>
         </Drawer>
       </>
     )
