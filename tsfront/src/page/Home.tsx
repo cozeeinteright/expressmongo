@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom"
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-
 import { blue } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Button from '@mui/material/Button';
+import { Box, Button ,Typography ,CssBaseline } from '@mui/material';
 import AnchorText from './../components/AnchorText'
 import MenuButton from './../components/MenuButton'
 import MenuList from './../components/MenuList'
+
 
 const theme = createTheme({
   palette: {
@@ -53,9 +50,12 @@ function  Home() {
       <header>
         <Box sx={groundTopbar}>
           <Box sx={innerTopbar}>
-            <Box sx={title}>Satoyama Biodiversiry Project</Box>
+            <Box sx={title}>Satoyama</Box>
             <Box sx={menubutton}><MenuButton /></Box>
             <Box sx={menulist}><MenuList /></Box>
+            <Box>
+              <Link to="/signin">Sign in</Link>
+            </Box>
           </Box>
         </Box>
         <AnchorText />
