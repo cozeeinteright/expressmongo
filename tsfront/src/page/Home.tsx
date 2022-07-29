@@ -1,80 +1,27 @@
-import { Link } from "react-router-dom"
-import { blue } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Box, Button ,Typography ,CssBaseline } from '@mui/material';
-import AnchorText from './../components/AnchorText'
-import MenuButton from './../components/MenuButton'
-import MenuList from './../components/MenuList'
+import { CssBaseline, Container } from '@mui/material';
+import Header from './../components/Header'
+import Main from './../components/Main'
+import Footer from './../components/Footer'
 
-
-const theme = createTheme({
-  palette: {
-    primary: blue,
-  },
-});
-const groundTopbar = {
-  display: 'flex',
-  justifyContent: 'center',
-  bgcolor: `${theme.palette.primary.light}`,
-} as const
-
-const innerTopbar = {
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  width: '100%',
-  maxWidth: 1200,
-} as const
-
-const title = {
-  p: 2,
-  color: 'white',
-} as const
-
-const menubutton = {
-  p: 2,
-  display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' },
-} as const
-
-const menulist = {
-  p: 2,
-  display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' },
-} as const
+const theme = createTheme();
 
 function  Home() {
     return (
       <>
       <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <header>
-        <Box sx={groundTopbar}>
-          <Box sx={innerTopbar}>
-            <Box sx={title}>Satoyama</Box>
-            <Box sx={menubutton}><MenuButton /></Box>
-            <Box sx={menulist}><MenuList /></Box>
-            <Box>
-              <Link to="/signin">Sign in</Link>
-            </Box>
-          </Box>
-        </Box>
-        <AnchorText />
-      </header>
-      <main>
-      <Box >
-          <Typography component="h2">
-            We belive
-          </Typography>;
-          <nav>
-            <Link to="/about">About</Link>
-          </nav>
-        </Box>    
-      </main>
-      <footer>
-        <Button variant="contained">Contained</Button>
-      </footer>
-    </ThemeProvider>
-    </>
+        <CssBaseline />
+        <Container component="header" maxWidth="lg">
+          <Header />
+        </Container>
+        <Container component="main"  maxWidth="lg">
+          <Main />
+        </Container>
+        <Container component="footer"  maxWidth="lg">
+          <Footer />
+        </Container>        
+      </ThemeProvider>
+      </>
     );
   }
 
