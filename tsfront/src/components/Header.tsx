@@ -1,53 +1,61 @@
-import * as React from 'react'
-import { styled } from '@mui/material/styles'
-import { AppBar, Box, Toolbar, IconButton, Typography} from '@mui/material'
-import MenuIcon  from '@mui/icons-material/Menu'
-import MoreIcon from '@mui/icons-material/MoreVert'
+import * as React from 'react';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
+interface HeaderProps {
+  sections: ReadonlyArray<{
+    title: string;
+    url: string;
+  }>;
+  title: string;
+}
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-    alignItems: 'flex-start',
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(2),
-    // Override media queries injected by theme.mixins.toolbar
-    '@media all': {
-      minHeight: 128,
-    },
-  }));
-
-const Header =() => {
+const Header =(props: HeaderProps) => {
+    const { sections, title } = props;
     return (
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <StyledToolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h5"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, alignSelf: 'flex-end' }}
-            >
-              MUI
-            </Typography>
-            <IconButton
-              size="large"
-              aria-label="display more actions"
-              edge="end"
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </StyledToolbar>
-        </AppBar>
-      </Box>
+      <React.Fragment>
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Button size="small">Subscribe</Button>
+        <Typography
+          component="h2"
+          variant="h5"
+          color="inherit"
+          align="center"
+          noWrap
+          sx={{ flex: 1 }}
+        >
+          {title}
+        </Typography>
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+        <Button variant="outlined" size="small">
+          Sign up
+        </Button>
+      </Toolbar>
+      <Toolbar
+        component="nav"
+        variant="dense"
+        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+      >
+        {sections.map((section) => (
+          <Link
+            color="inherit"
+            noWrap
+            key={section.title}
+            variant="body2"
+            href={section.url}
+            sx={{ p: 1, flexShrink: 0 }}
+          >
+            {section.title}
+          </Link>
+        ))}
+      </Toolbar>
+    </React.Fragment>
     )
 }
 export default Header
