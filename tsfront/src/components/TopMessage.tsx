@@ -19,11 +19,8 @@ export default function TopMessage() {
             <Container >
                 <Box sx={boxstyle}>
                     <Typography sx={style} variant='h4' >
-                        里山生物多様性プロジェクトは
-                    </Typography>
-                    <Typography sx={style} variant='h4' >
-                        人と自然とが共生する豊かな未来を造ります
-                    </Typography>
+                    人と自然とが共生する豊かな暮らしがを子どもたちに残す為に
+                    </Typography>                 
                 </Box>
             </Container>
         </>

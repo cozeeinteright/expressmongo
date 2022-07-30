@@ -25,7 +25,7 @@ function  Home() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container component="header" maxWidth="lg">
-          <Header title="Satoyama Biodiversity Project" sections={sections}/>
+          <Header title="里山生物多様性プロジェクト" sections={sections}/>
         </Container>
         <Container component="main"  maxWidth="lg">
           <Main />
