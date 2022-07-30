@@ -22,8 +22,8 @@ const sections = [
 function  Home() {
     return (
       <>
+      <CssBaseline />
       <ThemeProvider theme={theme}>
-        <CssBaseline />
         <Container component="header" maxWidth="lg">
           <Header title="Satoyama Biodiversity Project" sections={sections}/>
         </Container>
