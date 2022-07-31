@@ -1,26 +1,37 @@
 import { Container, Typography } from '@mui/material';
-import { Box } from '@mui/material'
+import { Grid ,Box} from '@mui/material'
 
-const boxstyle = {
-    display: 'flex',
-    alignItems: 'center',
-    height: {xs:200, md:500},
-} as const 
 
-const style = {
-    fontSize: {xs:15, md:40},
-    textAlign: 'left',
-    letterSpacing: 6,
-} as const 
+const ground = {
+   display: 'block',
+   height: {xs: 200, md: 400},
+} as const
+
+const firststack = { 
+    fontSize: {xs: 16, md: 40},
+} as const
+
+const secondstack = {
+    fontSize: {xs: 14, md: 35},
+} as const
 
 export default function TopMessage() {
     return (
         <>
             <Container >
-                <Box sx={boxstyle}>
-                    <Typography sx={style} variant='h4' >
-                    人と自然とが共生する豊かな暮らしがを子どもたちに残す為に
-                    </Typography>                 
+                <Box sx={ground}>
+                    <Grid container spacing={2}>
+                        <Grid xs={12}>
+                            <Typography sx={firststack} variant='h4' >
+                                日本の里山を
+                            </Typography> 
+                        </Grid>
+                        <Grid xs={12} >  
+                            <Typography sx={secondstack} variant='h4' >
+                                環境を学んだ若者たちが活躍する場所に変える
+                            </Typography>                                 
+                        </Grid>
+                    </Grid>
                 </Box>
             </Container>
         </>

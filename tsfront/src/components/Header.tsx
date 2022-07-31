@@ -26,7 +26,7 @@ const Header =(props: HeaderProps) => {
           color="inherit"
           align="center"
           noWrap
-          sx={{ flex: 1 }}
+          sx={{ flex: 1 ,fontSize: {xs:5, md:25}}}
         >
           {title}
         </Typography>

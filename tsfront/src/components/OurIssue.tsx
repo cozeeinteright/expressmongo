@@ -1,39 +1,48 @@
-import { Container ,Stack} from '@mui/material'
+import { Container ,Box, Typography } from '@mui/material'
 import Issue from './Issue'
-
 
 const issues = [
   {
-    name: '保全を担ったリーダーたちの高齢化と後継者の不足',
-    description: '',
+    name: '少子高齢化',
+    description: '保全を担ったリーダーたちの高齢化と後継者の不足',
     url: ''
   },
   {
-    name: '増える耕作放棄地による二次的自然と経済価値の損失',
-    description: '',
+    name: '生物多様性の損失',
+    description: '増える耕作放棄地、進む二次的自然と経済価値の損失',
     url: ''
   },
   {
-    name: '市町村に生物多様性の担当課がないことによる経済的損失',
-    description: '',
+    name: '都市との格差',
+    description: '町に生物多様性の担当課がない',
     url: ''
   },
   {
-    name: '環境を学んだ学生の受け皿となる就職先',
-    description: '',
+    name: '働く機会の損失',
+    description: '環境を学んだ学生の受け皿となる就職先がない',
     url: ''
   },  
 ]
 
+const style = {
+  display: 'grid',
+  gridTemplateColumns: {xs:'', md:'repeat(4, 1fr)'} ,
+  gridTemplateRows: {xs:'repeat(4, 1fr)', md:''} ,
+} as const 
+
 export default function OurIssue() {
+  const issueList = issues.map(({name, description, url}) =>
+    <Issue name={name} description={description} url={url} />
+  )
   return (
     <>
       <Container maxWidth="md">
-        <Stack direction="row" spacing={2}>
-          <Issue>Item 1</Issue>
-          <Issue>Item 2</Issue>
-          <Issue>Item 3</Issue>
-        </Stack>
+        <Typography variant='h5' sx={{foncSize: {xs: 12, md:25},height: '100%'}}>
+            私たちが解決したい４つの課題
+        </Typography>
+        <Box sx={style}>
+          {issueList}       
+        </Box>
       </Container>
     </>
   )
