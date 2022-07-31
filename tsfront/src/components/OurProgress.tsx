@@ -1,7 +1,11 @@
+import { Container  } from '@mui/material'
+import OurStep from './OurStep'
+
+
 export default function OurProgress() {
   return (
-    <>
-      進捗
-    </>
+    <Container maxWidth="md">
+      <OurStep />
+    </Container>
   )
 }
