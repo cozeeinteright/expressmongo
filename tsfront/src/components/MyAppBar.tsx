@@ -19,7 +19,19 @@ export default function MyAppBar(props: HeaderProps) {
   return (
     <>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <IconButton color='primary' size='medium' sx={{ display:{xs:'none',md:'block'},alignItems: 'center'}}><NaturePeopleIcon/></IconButton>
+        <IconButton 
+          color='primary'
+          size='medium'
+          sx={{ 
+            display:{xs:'none',md:'block'},
+            border: 1,
+            borderColor: 'primary.main',
+            borderRadius: 4,
+            alignItems: 'center',
+          }}
+        >
+          <NaturePeopleIcon/>
+        </IconButton>
         <Typography
           component="h2"
           variant="h5"
@@ -29,16 +41,39 @@ export default function MyAppBar(props: HeaderProps) {
         >
           {title}
         </Typography>
-        <IconButton color='primary'  size='medium' sx={{display:{xs:'block',md:'none'}, alignItems: 'center'}}>
+        <IconButton 
+          color='primary' 
+          size='medium' 
+          sx={{
+            display:{xs:'block',md:'none'},
+            alignItems: 'center',
+            border: 1,
+            borderColor: 'primary.main',
+            borderRadius: 4,
+          }}
+        >
           <MenuIcon />
         </IconButton>
-        <IconButton color='primary'  size='medium' sx={{alignItems: 'center'}}>
+        <IconButton 
+          color='primary' 
+          size='medium' 
+          sx={{
+            alignItems: 'center',
+            border: 1,
+            borderColor: 'primary.main',
+            borderRadius: 4,
+          }}
+        >
           <LoginIcon />
         </IconButton>
       </Toolbar>
       <Toolbar
         component="nav"
-        sx={{ display:{xs:'none',md:'block'} , flexDirection: 'row', justifyContent: 'space-between' }}
+        sx={{ 
+          display:{xs:'none',md:'block'} , 
+          flexDirection: 'row', 
+          justifyContent: 'space-between' ,
+        }}
       >
         {sections.map((section) => (
           <Button
