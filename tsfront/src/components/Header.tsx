@@ -1,13 +1,12 @@
 import MyAppBar from './MyAppBar'
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
+  { title: 'ドキュメント', url: '/document' },
+  { title: '寄附', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
   { title: 'Politics', url: '#' },
   { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
 ];
 
 const Header =() => {

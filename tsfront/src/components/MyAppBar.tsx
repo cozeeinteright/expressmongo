@@ -1,8 +1,7 @@
 import * as React from 'react';
-import Toolbar from '@mui/material/Toolbar';
+import { Link } from "react-router-dom";
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import { IconButton } from '@mui/material';
+import { IconButton ,Button, Toolbar} from '@mui/material';
 import NaturePeopleIcon from '@mui/icons-material/NaturePeople';
 import MenuIcon from '@mui/icons-material/Menu';
 import LoginIcon from '@mui/icons-material/Login';
@@ -20,40 +19,36 @@ export default function MyAppBar(props: HeaderProps) {
   return (
     <>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <IconButton size='small' sx={{ display:{xs:'none',md:'block'},alignItems: 'center'}}><NaturePeopleIcon/></IconButton>
+        <IconButton color='primary' size='medium' sx={{ display:{xs:'none',md:'block'},alignItems: 'center'}}><NaturePeopleIcon/></IconButton>
         <Typography
           component="h2"
           variant="h5"
           color="inherit"
-          align="center"
-          noWrap
-          sx={{ flex: 1 ,fontSize: {xs:10, md:25}}}
+          align="left"
+          sx={{ flex: 1, fontSize: {xs:15, ms:20, md:25}}}
         >
           {title}
         </Typography>
-        <IconButton size='small' sx={{display:{xs:'block',md:'none'}, alignItems: 'center'}}>
+        <IconButton color='primary'  size='medium' sx={{display:{xs:'block',md:'none'}, alignItems: 'center'}}>
           <MenuIcon />
         </IconButton>
-        <IconButton size='small' sx={{alignItems: 'center'}}>
+        <IconButton color='primary'  size='medium' sx={{alignItems: 'center'}}>
           <LoginIcon />
         </IconButton>
       </Toolbar>
       <Toolbar
         component="nav"
-        variant="dense"
-        sx={{ display:{xs:'none',md:'block'}, justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ display:{xs:'none',md:'block'} , flexDirection: 'row', justifyContent: 'space-between' }}
       >
         {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
+          <Button
+            component={Link}
+            to={section.url}
+            startIcon={<NaturePeopleIcon/>}
+            sx={{p: 2, mx: 2, bgcolor:'primary'}}
           >
             {section.title}
-          </Link>
+          </Button>
         ))}
       </Toolbar>
     </>

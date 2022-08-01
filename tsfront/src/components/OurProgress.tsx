@@ -1,11 +1,11 @@
 import { Container  } from '@mui/material'
-import OurStep from './OurStep'
+import OurTimeLine from './OurTimeLine'
 
 
 export default function OurProgress() {
   return (
     <Container maxWidth="md">
-      <OurStep />
+      <OurTimeLine />
     </Container>
   )
 }

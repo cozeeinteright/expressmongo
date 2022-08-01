@@ -1,5 +1,5 @@
 import { Container, Typography } from '@mui/material';
-import { Grid ,Box} from '@mui/material'
+import { Box} from '@mui/material'
 
 
 const ground = {
@@ -20,18 +20,15 @@ export default function TopMessage() {
         <>
             <Container >
                 <Box sx={ground}>
-                    <Grid container spacing={2}>
-                        <Grid xs={12}>
-                            <Typography sx={firststack} variant='h4' >
-                                日本の里山を
-                            </Typography> 
-                        </Grid>
-                        <Grid xs={12} >  
-                            <Typography sx={secondstack} variant='h4' >
-                                環境を学んだ若者たちが活躍する場所に変える
-                            </Typography>                                 
-                        </Grid>
-                    </Grid>
+                    <Typography sx={firststack} variant='h4' >
+                        私たちのゴール
+                    </Typography> 
+                    <Typography sx={secondstack} variant='h3' >
+                        「南部町の里地里山」を
+                    </Typography>    
+                    <Typography sx={secondstack} variant='h3' >
+                        環境を学んだ若者たちが活躍する場所に変える
+                    </Typography>                               
                 </Box>
             </Container>
         </>
