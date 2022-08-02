@@ -26,8 +26,11 @@ export default function MyAppBar(props: HeaderProps) {
             display:{xs:'none',md:'block'},
             border: 1,
             borderColor: 'primary.main',
-            borderRadius: 4,
+            borderRadius: 3,
             alignItems: 'center',
+            p: 0,
+            mx: 2,
+            my: 0,
           }}
         >
           <NaturePeopleIcon/>
@@ -49,7 +52,10 @@ export default function MyAppBar(props: HeaderProps) {
             alignItems: 'center',
             border: 1,
             borderColor: 'primary.main',
-            borderRadius: 4,
+            borderRadius: 3,
+            p: 0,
+            mx: 2,
+            my: 0,
           }}
         >
           <MenuIcon />
@@ -61,7 +67,10 @@ export default function MyAppBar(props: HeaderProps) {
             alignItems: 'center',
             border: 1,
             borderColor: 'primary.main',
-            borderRadius: 4,
+            borderRadius: 2,
+            p: 0,
+            mx: 2,
+            my: 0,
           }}
         >
           <LoginIcon />
@@ -80,7 +89,12 @@ export default function MyAppBar(props: HeaderProps) {
             component={Link}
             to={section.url}
             startIcon={<NaturePeopleIcon/>}
-            sx={{p: 2, mx: 2, bgcolor:'primary'}}
+            sx={{
+              p: 0,
+              m: 1,
+              bgcolor:'primary',
+              alignItems: 'center',
+            }}
           >
             {section.title}
           </Button>

@@ -30,13 +30,11 @@ export default function Issue() {
   )
   return (
     <>
-      <Box sx={{display:'flex'}}>
+      <Box>
         <Typography variant='h6' sx={{my:3}}>
            解決したい４つの課題
         </Typography>
-        <Box>
-          {issueList}       
-        </Box>
+        {issueList}       
       </Box>
     </>
   )
